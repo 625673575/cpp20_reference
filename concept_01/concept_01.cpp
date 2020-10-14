@@ -1,6 +1,6 @@
 ﻿#include <type_traits>
 
-// 声明一个数值类型的concept
+//01.将concept作为对模板类的限制来使用
 template<typename T>
 concept number = std::is_arithmetic<T>::value; // 对模板类型T添加std::is_arithmetic<T>::value为true的约束名为number
 
