@@ -1,4 +1,24 @@
-﻿#include <iostream>
+﻿/*
+如a与b是整型，那么a<=>b返回std::strong_ordering类型的纯右值(prvalue,不能取地址那种)：
+
+如果a<b,(a<=>b)返回std::strong_ordering::less
+如果a>b,(a<=>b)返回std::strong_ordering::greater
+如果a与b全等/相等,(a<=>b)返回std::strong_ordering::equal
+如果a b是浮点值，就返回的是std::partial_ordering::less/greater/equivalent或者std::partial_ordering::unordered(如果ab中有一个NaN)
++--------------------------------------------------------------------+
+|                  |          Numeric  values          | Non-numeric |
+|     Category     +-----------------------------------+             |
+|                  | -1   | 0          | +1            |   values    |
++------------------+------+------------+---------------+-------------+
+| strong_ordering  | less | equal      | greater       |             |
+| weak_ordering    | less | equivalent | greater       |             |
+| partial_ordering | less | equivalent | greater       | unordered   |
+| strong_equality  |      | equal      | nonequal      |             |
+| weak_equality    |      | equivalent | nonequivalent |             |
++------------------+------+------------+---------------+-------------+
+*/
+
+#include <iostream>
 #include <string>
 #include <vector>
 #include <map>
